@@ -5,16 +5,12 @@ module.exports = function solveEquation(equation) {
   let b = parameters[1]
   let c = parameters[2]
 
-  let D = b*b - 4 * a * c
+  let D2 = Math.sqrt(b*b - 4 * a * c)
 
-  let x1 = (-1 * b + Math.sqrt(D)) / (2 * a)
-  let x2 = (-1 * b - Math.sqrt(D)) / (2 * a)
+  D2 = a < 0 ? -1 * D2 : D2
 
-  if (a > 0) {
-    let temp = x1
-    x1 = x2
-    x2 = temp
-  }
+  let x1 = (-1 * b - D2) / (2 * a)
+  let x2 = (-1 * b + D2) / (2 * a)
 
   return [Math.round(x1), Math.round(x2)]
 }
